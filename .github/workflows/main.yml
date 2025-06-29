@@ -23,7 +23,9 @@ jobs:
       - name: Update README.md
         run: |
           count=${{ steps.filecount.outputs.file_count }}
-          sed -i '/<!-- FILECOUNT -->/c\!['"$count"'](https://progress-bar.xyz/6?title='"$count"')<!-- FILECOUNT -->' README.md
+          ps=299
+          percentage=$(echo "scale=0; $count / $ps" | bc)
+          sed -i '/<!-- FILECOUNT -->/c\!['"$count"'](https://progress-bar.xyz/$percentage?title='"$count"')<!-- FILECOUNT -->' README.md
 
       - name: Commit and push changes
         run: |
