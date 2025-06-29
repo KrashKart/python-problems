@@ -24,7 +24,7 @@ jobs:
         run: |
           count=${{ steps.filecount.outputs.file_count }}
           ps=299
-          percentage=$(echo "scale=0; $count / $ps * 100" | bc)
+          percentage=$(echo "scale=0; $count * 100/ $ps" | bc)
           sed -i '/<!-- FILECOUNT -->/c\!['"$count"'/'"$ps"'](https://progress-bar.xyz/'"$percentage"'?title='"$count"'/'"$ps"')<!-- FILECOUNT -->' README.md
 
       - name: Commit and push changes
