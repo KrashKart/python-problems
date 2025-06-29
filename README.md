@@ -10,4 +10,4 @@ Implementations are in both the [labs109.py](labs109.py) file and in the [indiv_
 [Original Repo by ikokkari](https://github.com/ikokkari/PythonProblems)
 
 # Progress
-![23/299](https://progress-bar.xyz/0?title=23/299)<!-- FILECOUNT -->
+![23/2.99](https://progress-bar.xyz/7?title=23/2.99)<!-- FILECOUNT -->
