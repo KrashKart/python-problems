@@ -1,3 +1,5 @@
+import utils
+
 def ryerson_letter_grade(pct):
     if pct < 50:
         return "F"
@@ -106,3 +108,112 @@ def words_with_letters(words, letters):
         return False
     
     return list(filter(lambda x: is_subsequence(x, letters), words))
+
+def taxi_zum_zum(moves):
+    curr = 0 + 0j
+    heading = 0 + 1j
+    for m in moves:
+        if m == "L":
+            heading *= 1j
+        elif m == "R":
+            heading *= -1j
+        else:
+            curr += heading
+    return (int(curr.real), int(curr.imag))
+
+def give_change(amount, coins):
+    curr, tally = 0, []
+    while amount:
+        if amount < coins[curr]:
+            curr += 1
+        else:
+            left = amount % coins[curr]
+            tally += amount // coins[curr] * [coins[curr]]
+            amount = left
+    return tally
+
+def safe_squares_rooks(n, rooks):
+    row_set = set()
+    col_set = set()
+    safe = set(range(n))
+    for r in rooks:
+        row_set.add(r[0])
+        col_set.add(r[1])
+    
+    return len(safe - row_set) * len(safe - col_set)
+
+def words_with_given_shape(words, shape):
+    def has_shape(word, shape):
+        if len(word) != len(shape) + 1:
+            return False
+        for i in range(len(shape)):
+            if shape[i] == 0 and ord(word[i]) != ord(word[i+1]):
+                return False
+            elif shape[i] * ord(word[i]) >= shape[i] * ord(word[i+1]) and shape[i] != 0:
+                return False
+        return True
+    return list(filter(lambda x: has_shape(x, shape), words))
+
+def is_left_handed(pips):
+    flips = 0
+    for i in range(len(pips)):
+        if pips[i] > 3:
+            flips += 1
+            pips[i] = 7 - pips[i]
+    
+    is_left = pips in [[1, 2, 3], [2, 3, 1], [3, 1, 2]]
+    return is_left if flips % 2 == 0 else not is_left
+
+def winning_card(cards, trump=None):
+    ref = utils.return_cards()
+
+    if not trump:
+        trump = cards[0][1]
+    
+    highest = ()
+    for c in cards:
+        if not highest:
+            highest = c
+        elif c[1] == highest[1] and ref.index(c[0]) > ref.index(highest[0]):
+            highest = c
+        elif c[1] == trump and highest[1] != trump:
+            highest = c
+    return highest
+
+def knight_jump(knight, start, end):
+    diff = tuple(map(lambda x: abs(x[0] - x[1]), zip(start, end)))
+    return knight == tuple(sorted(diff, reverse=True))
+
+def seven_zero(n):
+    def gen(digits, ends_zero):
+        while True:
+            if ends_zero:
+                for k in range(1, digits):
+                    yield int("7" * k + "0" * (digits - k))
+            else:
+                yield int("7" * digits)
+            digits += 1
+    
+    for num in gen(len(str(n)), n % 2  == 0 or n % 5 == 0):
+        if num % n == 0:
+            return num
+
+def can_balance(items):
+    length = len(items)
+    for i in range(length):
+        tally = 0
+        for j in range(length):
+            tally += items[j] * (j - i)
+        if not tally:
+            return i
+    return -1
+
+def josephus(n, k):
+    curr, tally, counter = list(range(1, n + 1)), list(), -1
+    while curr:
+        counter += k
+        counter %= len(curr)
+        tally.append(curr[counter])
+        curr.pop(counter)
+        counter -= 1
+    return tally
