@@ -41,7 +41,7 @@ version = "June 27, 2025"
 fixed_seed = 12345
 
 # Name of the file that contains the expected answers.
-expected_answers_file = 'expected_answers'
+expected_answers_file = './grader/expected_answers'
 
 # Markers used to separate the parts of the expected answers file.
 # These should never appear as the prefix of any expected answer.
@@ -207,7 +207,7 @@ def test_one_function(f, test_generator, expected_checksum=None, recorder=None, 
 def sort_by_source():
     funcs, recognized = dict(), set(f for (f, _, _) in testcases)
     need_check = [f for (f, test, check) in testcases if check is None]
-    with open('labs109.py', 'r', encoding='utf-8') as source:
+    with open('./grader/labs109.py', 'r', encoding='utf-8') as source:
         for (line_no, line) in enumerate(source):
             if line.startswith("def "):
                 function_name = line[4:line.find('(')].strip()

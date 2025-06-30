@@ -5,7 +5,7 @@ My solutions for *109 Python Problems for CCPS 109* by [Prof Ilkka Kokkarinen](h
 * Third Python Problem Collection (53 problems)
 making a total of 299 problems thus far
 
-Implementations are in both the [labs109.py](labs109.py) file and in the [indiv_solutions](indiv_solutions/) folder
+All implementations are in the [indiv_solutions](indiv_solutions/) folder and partial solutions are in the [labs109.py](labs109.py) file.
 
 [Original Repo by ikokkari](https://github.com/ikokkari/PythonProblems)
 
