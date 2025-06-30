@@ -286,3 +286,55 @@ import utils
 #                 best = current
 
 #     return best
+
+# def tukeys_ninthers(items):
+#     while len(items) > 1:
+#         temp = []
+#         for i in range(0, len(items), 3):
+#             a, b, c = items[i:i+3]
+#             if a <= b <= c or c <= b <= a:
+#                 temp.append(b)
+#             elif b <= a <= c or c <= a <= b:
+#                 temp.append(a)
+#             else:
+#                 temp.append(c)
+#         items = temp
+#     return items[0]
+
+# def collect_numbers(perm):
+#     n = len(perm)
+#     inv = list(range(n))
+#     for i in range(n):
+#         inv[perm[i]] = i
+#     rounds = 1
+#     for i in range(1, n):
+#         if inv[i] < inv[i-1]:
+#             rounds += 1
+#     return rounds
+
+# def verify_betweenness(perm, constraints):
+#     n = len(perm)
+#     inv = list(range(n))
+#     for i in range(n):
+#         inv[perm[i]] = i
+    
+#     for c in constraints:
+#         if not (inv[c[0]] < inv[c[1]] < inv[c[2]] or inv[c[0]] > inv[c[1]] > inv[c[2]]):
+#             return False
+#     return True
+
+# def count_troikas(items):
+#     tally = dict()
+#     for i in range(len(items)):
+#         temp = tally.get(items[i], [])
+#         temp.append(i)
+#         tally[items[i]] = temp
+    
+#     troikas = 0
+#     for _, v in tally.items():
+#         if len(v) > 2:
+#             for i in range(len(v)):
+#                 for j in range(i + 1, len(v)):
+#                     if 2 * v[j] - v[i] in v:
+#                         troikas += 1
+#     return troikas
