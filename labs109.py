@@ -229,18 +229,60 @@ import utils
 # def pyramid_blocks(n, m, h):
 #     return n * m * h + (n + m) * h * (h - 1) // 2 + h * (h - 1) * (2 * h - 1) // 6
 
-def count_growlers(animals):
-    cds, growls = [0, 0], 0
-    lefts, rights = ["cat", "dog"], ["tac", "god"]
-    for i in range(len(animals)):
-        if animals[i] in lefts:
-            growls += 1 if cds[1] > cds[0] else 0
-        cds[lefts.index(animals[i]) if animals[i] in lefts else rights.index(animals[i])] += 1
+# def count_growlers(animals):
+#     cds, growls = [0, 0], 0
+#     lefts, rights = ["cat", "dog"], ["tac", "god"]
+#     for i in range(len(animals)):
+#         if animals[i] in lefts:
+#             growls += 1 if cds[1] > cds[0] else 0
+#         cds[lefts.index(animals[i]) if animals[i] in lefts else rights.index(animals[i])] += 1
             
-    cds = [0, 0]
-    for i in range(len(animals) - 1, -1, -1):
-        if animals[i] in rights:
-            growls += 1 if cds[1] > cds[0] else 0
-        cds[lefts.index(animals[i]) if animals[i] in lefts else rights.index(animals[i])] += 1
+#     cds = [0, 0]
+#     for i in range(len(animals) - 1, -1, -1):
+#         if animals[i] in rights:
+#             growls += 1 if cds[1] > cds[0] else 0
+#         cds[lefts.index(animals[i]) if animals[i] in lefts else rights.index(animals[i])] += 1
     
-    return growls 
+#     return growls 
+
+# def bulgarian_solitaire(piles, k):
+#     target, steps = list(range(1, k + 1)), 0
+#     while sorted(piles) != target:
+#         new_pile = len(piles)
+#         piles = list(filter(lambda x: x != 1, piles))
+#         piles = list(map(lambda x: x - 1, piles))
+#         piles.append(new_pile)
+#         steps += 1
+#     return steps
+
+# def scylla_or_charybdis(moves, n):
+#     k, minlen, mink = 1, len(moves), 1
+#     while k < len(moves):
+#         temp = moves[k - 1::k]
+#         curr = 0
+#         for i in range(len(temp)):
+#             curr += 1 if temp[i] == "+" else -1
+#             if abs(curr) >= n and i < minlen:
+#                 minlen, mink = i, k
+#                 break
+#         k += 1
+#     return mink
+
+# def arithmetic_progression(items):
+#     n = len(items)
+#     dp = [dict() for _ in range(n)]
+#     best = (items[0], 0, 1)
+#     for i in range(1, n):
+#         for j in range(i):
+#             stride = items[i] - items[j]
+#             length = dp[j].get(stride, 1) + 1
+#             dp[i][stride] = max(dp[j].get(stride, 0), length)
+
+#             start = items[i] - (length - 1) * stride
+#             current = (start, stride, length)
+
+#             # Compare with best
+#             if (length > best[2] or (length == best[2] and start < best[0]) or (length == best[2] and start == best[0] and stride < best[1])):
+#                 best = current
+
+#     return best
