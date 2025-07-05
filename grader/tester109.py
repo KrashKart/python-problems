@@ -15,7 +15,7 @@ import gzip
 import os.path
 import string
 from sys import version_info, exit
-import labs109
+from . import labs109
 from fractions import Fraction as F
 from datetime import date
 
