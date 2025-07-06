@@ -5,19 +5,19 @@ def return_cards(ace_last=True):
         return ["ace", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king"]
 
 def minNone(a, b):
-    if not a and not b:
+    if a is None and b is None:
         raise ValueError("Parameters cannot be None!")
-    elif not b:
+    elif b is None:
         return a
-    elif not a:
+    elif a is None:
         return b
     return min(a, b)
 
 def maxNone(a, b):
-    if not a and not b:
+    if a is None and b is None:
         raise ValueError("Parameters cannot be None!")
-    elif not b:
+    elif b is None:
         return a
-    elif not a:
+    elif a is None:
         return b
     return max(a, b)
