@@ -10,4 +10,4 @@ All implementations are in the [indiv_solutions](indiv_solutions/) folder and pa
 [Original Repo by ikokkari](https://github.com/ikokkari/PythonProblems)
 
 # Progress
-![35/299](https://progress-bar.xyz/11?title=35/299)<!-- FILECOUNT -->
+![40/299](https://progress-bar.xyz/13?title=40/299)<!-- FILECOUNT -->
