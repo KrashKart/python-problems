@@ -1,5 +1,3 @@
-# from utils import utils
-
 def brussels_choice_step(n, mink, maxk):
     s = str(n)
     l = len(s)
